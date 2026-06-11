@@ -13,7 +13,7 @@ tablero = [["" for _ in range(3)]for _ in range(3)]
 #X y O
 turno = "X"
 
-def clic(fila,columna):
+def clic(fila,columna): #Gestiona el movimiento de los jugadores
     global turno
 
     if botones[fila][columna]["text"] == "":
@@ -77,7 +77,7 @@ for fila in range(3):
     botones.append(fila_botones)
 
 #Verificar ganador
-def verificar_ganador():
+def verificar_ganador(): #verifica si existe un ganador revisando las filas, columnas y diagonales
 
     for i in range(3): 
         if(botones[i][0]["text"] == #Filas
@@ -113,7 +113,7 @@ if ganador:
     )
 
 #En caso de empate 
-def empate():
+def empate(): #Verifica si la partida termina en empate revisando si hay botones vacios, si no hay y no hay ganador, es empate
     for fila in botones:
         for boton in fila:
             if boton["text"] == "":
@@ -128,7 +128,7 @@ if empate():
     )
 
 #Humano vs Computadora
-def movimiento_computadora():
+def movimiento_computadora(): #Revisa cada movimiento aleatorio de la computadora
     disponibles = []
 
     for f in range(3):
@@ -142,11 +142,11 @@ def movimiento_computadora():
 
 #Humano vs Humano
 modo = "Humano vs Humano"
-def humano_vs_humano():
+def humano_vs_humano(): #Para jugar humano contra humano
     global modo
     modo = "Humano vs Humano"
 
-def humano_vs_computadora():
+def humano_vs_computadora(): #Para jugar humano contra computadora
     global modo
     modo = "Computadora"
 
@@ -164,7 +164,7 @@ tk.Button(
 ).grid(row=5,column=0,columnspan=3)
 
 #Boton para reinciar la partida 
-def reiniciar():
+def reiniciar(): #Para reiniciar el tablero o la partida, reinicia el turno
     global turno
 
     turno = "X"
